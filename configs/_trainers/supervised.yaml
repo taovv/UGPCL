@@ -1,0 +1,41 @@
+train:
+  name: SupervisedTrainer
+  kwargs:
+    criterions:
+      - name: DiceLoss_
+        kwargs: { weight: 0.5 ,n_classes: 4, class_weight: [ 0.0, 1.0, 1.0, 1.0 ] }
+      - name: CrossEntropyLoss_
+        kwargs: { weight: 0.5 }
+    metrics: # metrics config list
+      - name: Dice
+        kwargs:
+          name: Dice
+          class_indexs: [ 0, 1, 2, 3 ]
+          class_names: [ bg, c1, c2, c3 ]
+      - name: Jaccard
+        kwargs:
+          name: Jaccard
+          class_indexs: [ 0, 1, 2, 3 ]
+          class_names: [ bg, c1, c2, c3 ]
+    labeled_bs: 8
+    max_iter: 6000
+    eval_interval: 1000
+    save_image_interval: 50
+    save_ckpt_interval: 1000
+
+optimizer:
+  name: SGD
+  kwargs:
+    lr: 0.01
+    weight_decay: 0.0001
+    momentum: 0.9
+
+scheduler:
+  name: StepLR
+  kwargs:
+    step_size: 2500
+    gamma: 0.1
+
+logger:
+  log_file: True
+  tensorboard: True

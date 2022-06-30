@@ -1,0 +1,14 @@
+colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+h5py==3.4.0
+matplotlib==3.4.2
+MedPy==0.4.0
+numpy==1.21.1
+prettytable==2.1.0
+scipy==1.7.1
+segmentation-models-pytorch==0.2.0
+sklearn==0.0
+tensorboardX==2.4
+timm==0.4.12
+torch==1.9.1+cu102
+torchvision==0.10.1+cu102
+tqdm==4.62.0

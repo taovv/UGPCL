@@ -1,0 +1,10 @@
+model:
+  name: UNetTF
+  kwargs:
+    in_channels: 3
+    classes: 4
+    encoder_name: resnet50
+    encoder_weights: imagenet
+    contrast_embed: False
+    contrast_embed_dim: 256
+    contrast_embed_index: -3

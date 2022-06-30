@@ -1,0 +1,23 @@
+dataset:
+  name: acdc
+  kwargs:
+    root_dir: F:/datasets/ACDC/
+    labeled_num: 7
+    labeled_bs: 8
+    batch_size: 16
+    batch_size_val: 16
+    num_workers: 0
+    train_transforms:
+      - name: RandomGenerator
+        kwargs: { output_size: [ 224, 224 ], p_flip: 0.5, p_rot: 0.5 }
+      - name: ToRGB
+      - name: RandomCrop
+        kwargs: { size: [ 224, 224 ] }
+      - name: RandomFlip
+        kwargs: { p: 0.5 }
+      - name: ColorJitter
+        kwargs: { brightness: 0.4,contrast: 0.4, saturation: 0.4, hue: 0.1, p: 0.8 }
+    val_transforms:
+      - name: RandomGenerator
+        kwargs: { output_size: [ 224, 224 ], p_flip: 0.5, p_rot: 0.5 }
+      - name: ToRGB

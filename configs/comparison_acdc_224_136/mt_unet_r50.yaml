@@ -1,0 +1,33 @@
+name: mt_unet_r50
+
+include:
+  - ../_datasets/acdc_224.yaml
+  - ../_models/unet_r50.yaml
+  - ../_trainers/mt.yaml
+
+train:
+  name: MeanTeacherTrainer
+  kwargs:
+    consistency: 0.1
+    consistency_rampup: 100.0   # max_iter // 100
+    max_iter: 10000
+    eval_interval: 1000
+    save_image_interval: 50
+    save_ckpt_interval: 1000
+
+scheduler:
+  name: PolyLR
+  kwargs:
+    max_iters: 10000
+
+model:
+  name: UNet
+  kwargs:
+    in_channels: 3
+    classes: 4
+
+ema_model:
+  name: UNet
+  kwargs:
+    in_channels: 3
+    classes: 4

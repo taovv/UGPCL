@@ -1,0 +1,31 @@
+name: unet_r50
+
+include:
+  - ../_datasets/acdc_224.yaml
+  - ../_models/unet_r50.yaml
+  - ../_trainers/supervised.yaml
+
+dataset:
+  name: acdc
+  kwargs:
+    labeled_bs: 16
+
+train:
+  name: SupervisedTrainer
+  kwargs:
+    labeled_bs: 16
+    max_iter: 10000
+    eval_interval: 1000
+    save_image_interval: 50
+    save_ckpt_interval: 1000
+
+model:
+  name: UNet
+  kwargs:
+    in_channels: 3
+    classes: 4
+
+scheduler:
+  name: PolyLR
+  kwargs:
+    max_iters: 10000

@@ -1,0 +1,47 @@
+name: ugpcl_unet_r50
+
+include:
+  - ../_datasets/acdc_224.yaml
+  - ../_models/unet_tf_r50.yaml
+  - ../_trainers/ugpcl.yaml
+
+dataset:
+  name: acdc
+  kwargs:
+    labeled_bs: 8
+    batch_size: 16
+    train_transforms:
+      - name: RandomGenerator
+        kwargs: { output_size: [ 224, 224 ], p_flip: 0.0, p_rot: 0.0 } # Remove random rotation
+      - name: ToRGB
+      - name: RandomCrop
+        kwargs: { size: [ 224, 224 ] }
+      - name: RandomFlip
+        kwargs: { p: 0.5 }
+      - name: ColorJitter
+        kwargs: { brightness: 0.4,contrast: 0.4, saturation: 0.4, hue: 0.1, p: 0.8 }
+
+train:
+  name: UGPCLTrainer
+  kwargs:
+    contrast_weight: 0.1
+    labeled_bs: 8
+    consistency: 0.01
+    consistency_rampup: 100.0  # max_iter // 100
+    memory: true
+    max_samples: 1024
+    max_views: 1
+    memory_size: 500
+    pixel_update_freq: 10
+    pixel_classes: 4
+    max_iter: 10000
+
+model:
+  name: UNetTF
+  kwargs:
+    contrast_embed: True
+
+scheduler:
+  name: PolyLR
+  kwargs:
+    max_iters: 10000

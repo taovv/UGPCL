@@ -1,0 +1,7 @@
+model:
+  name: UNet
+  kwargs:
+    in_channels: 1
+    classes: 4
+    encoder_name: resnet50
+    encoder_weights: imagenet

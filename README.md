@@ -40,6 +40,18 @@ Please change the dataset root directory in _configs/\_datasets/acdc_224.yaml_.
 
 # Citation
 ```bibtex
-
-
+@inproceedings{ijcai2022-201,
+  title     = {Uncertainty-Guided Pixel Contrastive Learning for Semi-Supervised Medical Image Segmentation},
+  author    = {Wang, Tao and Lu, Jianglin and Lai, Zhihui and Wen, Jiajun and Kong, Heng},
+  booktitle = {Proceedings of the Thirty-First International Joint Conference on
+               Artificial Intelligence, {IJCAI-22}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {Lud De Raedt},
+  pages     = {1444--1450},
+  year      = {2022},
+  month     = {7},
+  note      = {Main Track}
+  doi       = {10.24963/ijcai.2022/201},
+  url       = {https://doi.org/10.24963/ijcai.2022/201},
+}
 ```

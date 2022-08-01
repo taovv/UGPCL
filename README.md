@@ -50,7 +50,7 @@ Please change the dataset root directory in _configs/\_datasets/acdc_224.yaml_.
   pages     = {1444--1450},
   year      = {2022},
   month     = {7},
-  note      = {Main Track}
+  note      = {Main Track},
   doi       = {10.24963/ijcai.2022/201},
   url       = {https://doi.org/10.24963/ijcai.2022/201},
 }

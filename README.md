@@ -16,7 +16,7 @@ Please change the dataset root directory in _configs/\_datasets/acdc_224.yaml_.
 
 # Results
 
-### *ACDC* (136 labels):
+### *ACDC* (136 labels | 10%):
 
 |    Method    |  Model   | Iterations | Batch Size | Label Size |  DsC  |                             Ckpt                             |                     Config File                     |
 | :----------: | :------: | :--------: | :--------: | :--------: | :---: | :----------------------------------------------------------: | :-------------------------------------------------: |
